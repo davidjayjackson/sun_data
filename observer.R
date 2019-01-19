@@ -6,22 +6,44 @@ rm(list=ls())
 
 sunData <- fread("sun_data.csv")
 # Parse monthyr  into Mon and Year fields
-sunData$Month <- substr(sunData$monthyr,1,4)
+sunData$Month <- substr(sunData$monthyr,1,3)
 sunData$Yr <- substr(sunData$monthyr,5,8)
 # create Mon as int from Month field
 sunData$Yr <- as.integer(sunData$Yr)
-# create month as int field based on sunData$Yr feild
-sunData$Mon <-ifelse(sunData$Month == Jan,1,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Feb",2,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Mar",3,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Apr",4,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "May",5,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Jun",6,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Jul",7,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Aug",8,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Sep",9,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Oct",10,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Nov",11,sunData$Month)
-sunData$Mon <-ifelse(sunData$Month == "Dec",12,sunData$Month)
+# create month aint field based on sunData$Yr feild
+
+if(sunData$Month == "Jan"){
+  sunData$Mon <-"1"
+}elseif (sunData$Month == "Feb"){
+  sunData$Mon <-"2"
+}elseif(sunData$Month=="Mar"){
+  sunData$Mon <-"3"
+}elseif (sunData$Month == "Apr"){
+      sunData$Month <-"4"
+} elseif (sunData$Month=="May"){
+  sunData$Mon <-"5"
+} elseif(sunData$Month=="Jun") {
+  sunData$Mon <-"6"
+} elseif(sunData$Month =="Jul") {
+  sunData$Mon <-"7"
+} elseif (sunData$Month=="Aug"){
+  sunData$Mon <-"8"
+} elseif (sunData$Month=="Sep") {
+  sunData$Mon <-"9"
+} elseif (sunData$Month=="Oct"){
+  sunData$Mon <-"10"
+} elseif (sunData$Month=="Nov"){
+  sunData$Mon <-"11"
+} elseif (sunData$Month=="Dec"){
+  sunData$Mon <-"12"
+} else {sunData$Mon <-"0"}
+  
+  
+            
+      
+  
+
+
+
 # convert to int
 sunData$Mon <-as.integer(sunData$Mon)
